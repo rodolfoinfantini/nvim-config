@@ -10,20 +10,20 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'ThePrimeagen/harpoon'
+Plug 'mbbill/undotree'
 
 Plug 'morhetz/gruvbox'
 
-Plug 'HerringtonDarkholme/yats.vim'
-
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-
 call plug#end()
 
-let mapleader = ","
-
 colorscheme gruvbox
+
+let mapleader = " "
 
 filetype on
 
@@ -37,15 +37,18 @@ set shiftwidth=4
 set expandtab
 set ignorecase
 set smartcase
-set scrolloff=4
+set scrolloff=6
 set mouse=a
 set hidden
-set updatetime=300
+set updatetime=50
 set shortmess+=c
 set signcolumn=yes
+set incsearch
+set autoindent
+set termguicolors
 
 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>pf <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
@@ -54,6 +57,17 @@ nmap <leader>o o<Esc>k
 nmap th :split<CR>
 nmap tv :vsplit<CR>
 
+nnoremap <leader>pv :Ex<CR>
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>b :bprev<CR>
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+xnoremap <leader>p "_dP
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
 
 " ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -71,6 +85,9 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-eslint',
   \ 'coc-json',
+  \ 'coc-prettier',
+  \ 'coc-pyright',
+  \ 'coc-go',
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -121,6 +138,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
+nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -188,3 +206,17 @@ let g:prettier#config#tab_width = 4
 
 
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+
+
+
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.go :normal gg=G
+
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-@> coc#refresh()
+
+
+lua require('treesitter')
+lua require('harpoon_conf')
+lua require('undotree')
