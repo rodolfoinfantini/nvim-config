@@ -86,6 +86,11 @@ nmap <leader>b :wa<CR>:!dotnet build<CR>
 
 nnoremap <cr> ciw
 
+nnoremap <leader>u :UndotreeToggle<CR>
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
 
 let g:blamer_enabled = 1
 let g:blamer_delay = 500
@@ -191,10 +196,6 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
-
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
@@ -243,5 +244,4 @@ inoremap <silent><expr> <c-@> coc#refresh()
 
 lua require('treesitter')
 lua require('harpoon_conf')
-lua require('undotree')
 lua require('lualine_conf')
