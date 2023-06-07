@@ -1,3 +1,5 @@
+let g:vimspector_enable_mappings = 'HUMAN'
+
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -16,6 +18,10 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --producti
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ThePrimeagen/harpoon'
 Plug 'mbbill/undotree'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'APZelos/blamer.nvim'
+Plug 'puremourning/vimspector'
 
 Plug 'morhetz/gruvbox'
 
@@ -48,7 +54,7 @@ set autoindent
 set termguicolors
 
 
-nnoremap <leader>pf <cmd>Telescope find_files<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
@@ -60,14 +66,30 @@ nmap tv :vsplit<CR>
 nnoremap <leader>pv :Ex<CR>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>b :bprev<CR>
+nnoremap H ^
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+vnoremap y ygv<Esc>
 
 xnoremap <leader>p "_dP
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
 nnoremap <leader>Y "+Y
+
+
+nmap <Leader>di <Plug>VimspectorBalloonEval
+xmap <Leader>di <Plug>VimspectorBalloonEval
+nmap <Leader><F3> :VimspectorReset<CR><CR>
+
+nmap <leader>b :wa<CR>:!dotnet build<CR>
+
+nnoremap <cr> ciw
+
+
+let g:blamer_enabled = 1
+let g:blamer_delay = 500
+
 
 " ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -88,6 +110,8 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-pyright',
   \ 'coc-go',
+  \ 'coc-tabnine',
+  \ 'coc-rust-analyzer',
   \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -220,3 +244,4 @@ inoremap <silent><expr> <c-@> coc#refresh()
 lua require('treesitter')
 lua require('harpoon_conf')
 lua require('undotree')
+lua require('lualine_conf')
