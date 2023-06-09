@@ -1,5 +1,5 @@
 local function clock()
-    return os.date("%H:%M")
+    return (" " .. os.date("%H:%M"))
 end
 
 require('lualine').setup {

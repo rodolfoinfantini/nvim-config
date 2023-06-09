@@ -1,4 +1,12 @@
 let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_sign_priority = {
+  \    'vimspectorBP':          500,
+  \    'vimspectorBPCond':      500,
+  \    'vimspectorBPLog':       500,
+  \    'vimspectorBPDisabled':  500,
+  \    'vimspectorPC':          999,
+  \    'vimspectorPCBP':        999,
+  \ }
 
 call plug#begin()
 
@@ -22,6 +30,8 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'APZelos/blamer.nvim'
 Plug 'puremourning/vimspector'
+Plug 'kevinhwang91/promise-async'
+Plug 'kevinhwang91/nvim-ufo'
 
 Plug 'morhetz/gruvbox'
 
@@ -65,8 +75,7 @@ nmap tv :vsplit<CR>
 
 nnoremap <leader>pv :Ex<CR>
 nnoremap <leader>n :bnext<CR>
-nnoremap <leader>b :bprev<CR>
-nnoremap H ^
+nnoremap H _
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -91,9 +100,13 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
+nnoremap <leader>t :vertical split<CR><C-w>w:terminal pwsh.exe<CR>:vertical resize 50<CR>
+
+command! -nargs=0 Bps :VimspectorBreakpoints
+
 
 let g:blamer_enabled = 1
-let g:blamer_delay = 500
+let g:blamer_delay = 200
 
 
 " ctrlp
@@ -245,3 +258,5 @@ inoremap <silent><expr> <c-@> coc#refresh()
 lua require('treesitter')
 lua require('harpoon_conf')
 lua require('lualine_conf')
+lua require('telescope_conf')
+lua require('ufo_conf')
