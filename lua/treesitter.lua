@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "vimdoc", "javascript", "go", "c", "lua", "vim", "vimdoc", "query" },
+  ensure_installed = { "vimdoc", "javascript", "go", "c", "vimdoc", "query" },
 
   sync_install = false,
 
@@ -10,3 +10,4 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+require 'nvim-treesitter.install'.compilers = { "clang" }

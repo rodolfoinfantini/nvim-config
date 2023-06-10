@@ -1,4 +1,12 @@
 let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_sign_priority = {
+  \    'vimspectorBP':          500,
+  \    'vimspectorBPCond':      500,
+  \    'vimspectorBPLog':       500,
+  \    'vimspectorBPDisabled':  500,
+  \    'vimspectorPC':          999,
+  \    'vimspectorPCBP':        999,
+  \ }
 
 call plug#begin()
 
@@ -68,8 +76,7 @@ nmap tv :vsplit<CR>
 
 nnoremap <leader>pv :Ex<CR>
 nnoremap <leader>n :bnext<CR>
-nnoremap <leader>b :bprev<CR>
-nnoremap H ^
+nnoremap H _
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -96,17 +103,17 @@ nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+nnoremap <leader>t :vertical split<CR><C-w>w:terminal pwsh.exe<CR>:vertical resize 50<CR>
+
+command! -nargs=0 Bps :VimspectorBreakpoints
+
 
 let g:blamer_enabled = 1
-let g:blamer_delay = 500
+let g:blamer_delay = 200
 
 
 " ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" j/k will move virtual lines (lines that wrap)
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 
 
@@ -124,8 +131,6 @@ let g:coc_global_extensions = [
   \ 'coc-rust-analyzer',
   \ ]
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -137,20 +142,14 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -186,13 +185,10 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+vnoremap <leader>a  <Plug>(coc-codeaction-selected)
 
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
+nnoremap <leader>a <Plug>(coc-codeaction)
+
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
@@ -201,13 +197,10 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-" Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
-" Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
@@ -251,3 +244,4 @@ lua require('treesitter')
 lua require('harpoon_conf')
 lua require('lualine_conf')
 lua require('indent_blankline_conf')
+lua require('telescope_conf')
