@@ -22,12 +22,15 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'APZelos/blamer.nvim'
 Plug 'puremourning/vimspector'
+Plug 'ThePrimeagen/vim-be-good'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
+Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme gruvbox-material
 
 let mapleader = " "
 
@@ -90,6 +93,8 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 
 let g:blamer_enabled = 1
@@ -245,3 +250,4 @@ inoremap <silent><expr> <c-@> coc#refresh()
 lua require('treesitter')
 lua require('harpoon_conf')
 lua require('lualine_conf')
+lua require('indent_blankline_conf')
