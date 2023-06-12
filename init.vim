@@ -32,6 +32,7 @@ Plug 'APZelos/blamer.nvim'
 Plug 'puremourning/vimspector'
 Plug 'ThePrimeagen/vim-be-good'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'sindrets/diffview.nvim'
 
 Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
@@ -237,8 +238,6 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 autocmd BufWritePre *.go :normal gg=G
 
 inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <c-@> coc#refresh()
-
 
 lua require('treesitter')
 lua require('harpoon_conf')
