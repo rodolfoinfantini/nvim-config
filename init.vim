@@ -55,7 +55,7 @@ set shiftwidth=4
 set expandtab
 set ignorecase
 set smartcase
-set scrolloff=6
+set scrolloff=8
 set mouse=a
 set hidden
 set updatetime=50
