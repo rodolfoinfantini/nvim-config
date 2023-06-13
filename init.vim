@@ -15,7 +15,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'sheerun/vim-polyglot'
 Plug 'dense-analysis/ale'
 Plug 'nvim-lua/plenary.nvim'
@@ -217,22 +216,12 @@ let g:ale_fixers = {
 
 let g:ale_fix_on_save = 1
 
-
-" Prettier """"""""""""""""""""
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#config#semi = 'false'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#print_width = 100
-let g:prettier#config#tab_width = 4
-
-
-
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
-
-
+autocmd BufWritePre *.js :silent call CocAction('runCommand', 'prettier.formatFile')
+autocmd BufWritePre *.ts :silent call CocAction('runCommand', 'prettier.formatFile')
+autocmd BufWritePre *.css :silent call CocAction('runCommand', 'prettier.formatFile')
+autocmd BufWritePre *.html :silent call CocAction('runCommand', 'prettier.formatFile')
 
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd BufWritePre *.go :normal gg=G
