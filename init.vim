@@ -30,12 +30,16 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'APZelos/blamer.nvim'
 Plug 'puremourning/vimspector'
+Plug 'ThePrimeagen/vim-be-good'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'sindrets/diffview.nvim'
 
+Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme gruvbox-material
 
 let mapleader = " "
 
@@ -51,7 +55,7 @@ set shiftwidth=4
 set expandtab
 set ignorecase
 set smartcase
-set scrolloff=6
+set scrolloff=8
 set mouse=a
 set hidden
 set updatetime=50
@@ -96,6 +100,8 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 nnoremap <leader>t :vertical split<CR><C-w>w:terminal pwsh.exe<CR>:vertical resize 50<CR>
 
@@ -231,10 +237,9 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 autocmd BufWritePre *.go :normal gg=G
 
 inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <c-@> coc#refresh()
-
 
 lua require('treesitter')
 lua require('harpoon_conf')
 lua require('lualine_conf')
+lua require('indent_blankline_conf')
 lua require('telescope_conf')
