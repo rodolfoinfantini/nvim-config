@@ -33,6 +33,7 @@ Plug 'puremourning/vimspector'
 Plug 'ThePrimeagen/vim-be-good'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'sindrets/diffview.nvim'
+Plug 'motosir/skel-nvim'
 
 Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
@@ -243,3 +244,4 @@ lua require('harpoon_conf')
 lua require('lualine_conf')
 lua require('indent_blankline_conf')
 lua require('telescope_conf')
+lua require('skel_conf')
