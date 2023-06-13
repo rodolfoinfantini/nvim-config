@@ -88,10 +88,9 @@ nnoremap <leader>Y "+Y
 nmap <Leader>di <Plug>VimspectorBalloonEval
 xmap <Leader>di <Plug>VimspectorBalloonEval
 nmap <Leader><F3> :VimspectorReset<CR><CR>
+nmap <Leader>g <Plug>VimspectorGoToCurentLine
 
-nmap <leader>b :wa<CR>:!dotnet build<CR>
-
-nnoremap <cr> ciw
+nmap <leader>b <Plug>VimspectorStop:wa<CR>:!dotnet build<CR>
 
 nnoremap <leader>u :UndotreeToggle<CR>
 
