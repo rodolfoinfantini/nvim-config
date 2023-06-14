@@ -34,6 +34,7 @@ Plug 'ThePrimeagen/vim-be-good'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'motosir/skel-nvim'
+Plug 'preservim/nerdcommenter'
 
 Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
@@ -229,6 +230,9 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 autocmd BufWritePre *.go :normal gg=G
 
 inoremap <silent><expr> <c-space> coc#refresh()
+
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
 
 lua require('treesitter')
 lua require('harpoon_conf')
