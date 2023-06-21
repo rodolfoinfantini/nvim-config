@@ -1,12 +1,12 @@
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:vimspector_sign_priority = {
-  \    'vimspectorBP':          500,
-  \    'vimspectorBPCond':      500,
-  \    'vimspectorBPLog':       500,
-  \    'vimspectorBPDisabled':  500,
-  \    'vimspectorPC':          999,
-  \    'vimspectorPCBP':        999,
-  \ }
+            \    'vimspectorBP':          500,
+            \    'vimspectorBPCond':      500,
+            \    'vimspectorBPLog':       500,
+            \    'vimspectorBPDisabled':  500,
+            \    'vimspectorPC':          999,
+            \    'vimspectorPCBP':        999,
+            \ }
 
 call plug#begin()
 
@@ -27,7 +27,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ThePrimeagen/harpoon'
 Plug 'mbbill/undotree'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
 Plug 'APZelos/blamer.nvim'
 Plug 'puremourning/vimspector'
 Plug 'ThePrimeagen/vim-be-good'
@@ -35,6 +34,9 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'motosir/skel-nvim'
 Plug 'preservim/nerdcommenter'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'windwp/nvim-ts-autotag'
 
 Plug 'sainnhe/gruvbox-material'
 Plug 'morhetz/gruvbox'
@@ -106,6 +108,10 @@ nnoremap <C-u> <C-u>zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+nnoremap <C-e> :NvimTreeToggle<CR>
+
+nnoremap <leader>i gg=G<C-o>
+
 nnoremap <leader>t :vertical split<CR><C-w>w:terminal pwsh.exe<CR>:vertical resize 50<CR>
 
 command! -nargs=0 Bps :VimspectorBreakpoints
@@ -122,27 +128,30 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 
 " coc config
 let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint',
-  \ 'coc-json',
-  \ 'coc-prettier',
-  \ 'coc-pyright',
-  \ 'coc-go',
-  \ 'coc-tabnine',
-  \ 'coc-rust-analyzer',
-  \ ]
+            \ 'coc-snippets',
+            \ 'coc-pairs',
+            \ 'coc-tsserver',
+            \ 'coc-eslint',
+            \ 'coc-json',
+            \ 'coc-prettier',
+            \ 'coc-pyright',
+            \ 'coc-go',
+            \ 'coc-tabnine',
+            \ 'coc-rust-analyzer',
+            \ 'coc-emmet',
+            \ ]
+
+autocmd FileType html let b:coc_pairs_disabled = ['<']
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -162,11 +171,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
@@ -181,11 +190,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 vnoremap <leader>a  <Plug>(coc-codeaction-selected)
@@ -211,11 +220,11 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " ALE """"""""""""""""""""""""
 let g:ale_linters = {
-\}
+            \}
 
 let g:ale_fixers = {
-\   '*': ['trim_whitespace'],
-\}
+            \   '*': ['trim_whitespace'],
+            \}
 
 let g:ale_fix_on_save = 1
 
@@ -240,3 +249,5 @@ lua require('lualine_conf')
 lua require('indent_blankline_conf')
 lua require('telescope_conf')
 lua require('skel_conf')
+lua require('tree_conf')
+lua require('autotag_conf')
