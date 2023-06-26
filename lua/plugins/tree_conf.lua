@@ -3,10 +3,17 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.keymap.set('n', '<C-e>', ':NvimTreeToggle<CR>')
 
+local HEIGHT_RATIO = 0.8 -- You can change this
+local WIDTH_RATIO = 0.5  -- You can change this too
+
 require("nvim-tree").setup({
-        sort_by = "case_sensitive",
+        disable_netrw = true,
+        hijack_netrw = true,
+        respect_buf_cwd = true,
+        sync_root_with_cwd = true,
         view = {
-            adaptive_size = true
+            relativenumber = true,
+            adaptive_size = true,
         },
         renderer = {
             indent_width = 4,
@@ -21,9 +28,9 @@ require("nvim-tree").setup({
                 },
             },
             icons = {
-                webdev_colors = false,
+                webdev_colors = true,
                 show = {
-                    file = false,
+                    file = true,
                     folder = true,
                     folder_arrow = false,
                     git = true
@@ -54,7 +61,7 @@ require("nvim-tree").setup({
             }
         },
         filters = {
-            dotfiles = true,
+            custom = { "^.git$" },
         },
         diagnostics = {
             enable = true,
