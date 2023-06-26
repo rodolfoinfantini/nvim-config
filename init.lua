@@ -56,6 +56,7 @@ require("lazy").setup({
         'folke/lsp-colors.nvim',
         "windwp/nvim-ts-autotag",
         "github/copilot.vim",
+        "xiyaowong/transparent.nvim",
 
         -- THEMES
         "sainnhe/gruvbox-material",

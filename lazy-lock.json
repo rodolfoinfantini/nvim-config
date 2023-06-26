@@ -19,6 +19,7 @@
   "skel-nvim": { "branch": "main", "commit": "827d12df3a60553fdd9ff4d8d159a638d782ddf3" },
   "telescope-coc.nvim": { "branch": "master", "commit": "a1aaabdb3b546f63d24f1fd156dfb1ddc0bc03de" },
   "telescope.nvim": { "branch": "master", "commit": "6074847b6ee4b725747c8fc540d9b6b128ac8a12" },
+  "transparent.nvim": { "branch": "main", "commit": "c35b1182ab8d474a205a4fdd4b6a9ca1b25ef0fa" },
   "undotree": { "branch": "master", "commit": "485f01efde4e22cb1ce547b9e8c9238f36566f21" },
   "vim-be-good": { "branch": "master", "commit": "c290810728a4f75e334b07dc0f3a4cdea908d351" },
   "vim-devicons": { "branch": "master", "commit": "71f239af28b7214eebb60d4ea5bd040291fb7e33" },
