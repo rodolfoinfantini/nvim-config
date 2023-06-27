@@ -30,31 +30,69 @@ require("lazy").setup({
             branch = "master",
             build = "yarn install --frozen-lockfile",
         },
+        "tpope/vim-fugitive",
         "ryanoasis/vim-devicons",
         "airblade/vim-gitgutter",
         "sheerun/vim-polyglot",
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
+        {
+            "nvim-telescope/telescope.nvim",
+            lazy = true,
+        },
         "fannheyward/telescope-coc.nvim",
-        "christoomey/vim-tmux-navigator",
+        {
+            "christoomey/vim-tmux-navigator",
+            enabled = false,
+        },
         {
             "nvim-treesitter/nvim-treesitter",
             build = ":TSUpdate"
         },
-        "ThePrimeagen/harpoon",
+        {
+            "ThePrimeagen/harpoon",
+            lazy = true,
+        },
         "mbbill/undotree",
-        "nvim-lualine/lualine.nvim",
-        "APZelos/blamer.nvim",
-        "puremourning/vimspector",
-        "ThePrimeagen/vim-be-good",
+        {
+            "nvim-lualine/lualine.nvim",
+            lazy = true,
+        },
+        {
+            "APZelos/blamer.nvim",
+            lazy = true,
+            event = "BufRead",
+        },
+        {
+            "puremourning/vimspector",
+            lazy = true,
+            cmd = { "VimspectorToggleBreakpoint", "Vimspector" },
+            keys = { "<F5>", "<F9>" },
+        },
+        {
+            "ThePrimeagen/vim-be-good",
+            lazy = true,
+            cmd = "VimBeGood",
+        },
         "lukas-reineke/indent-blankline.nvim",
-        "sindrets/diffview.nvim",
+        {
+            "sindrets/diffview.nvim",
+            lazy = true,
+            cmd = "DiffviewOpen",
+        },
         "motosir/skel-nvim",
-        "preservim/nerdcommenter",
+        {
+            "preservim/nerdcommenter",
+            lazy = true,
+            cmd = "NERDCommenterToggle",
+            keys = { "<leader>cc", "<leader>cu" },
+        },
         "nvim-tree/nvim-web-devicons",
-        -- "nvim-tree/nvim-tree.lua",
         'folke/lsp-colors.nvim',
-        "windwp/nvim-ts-autotag",
+        {
+            "windwp/nvim-ts-autotag",
+            ft = { "html" },
+            lazy = true,
+        },
         "github/copilot.vim",
         "xiyaowong/transparent.nvim",
         {
@@ -64,8 +102,14 @@ require("lazy").setup({
         },
 
         -- THEMES
-        "sainnhe/gruvbox-material",
-        "morhetz/gruvbox",
+        {
+            "sainnhe/gruvbox-material",
+            lazy = true,
+        },
+        {
+            "morhetz/gruvbox",
+            enabled = false,
+        },
     })
 
 require('colors')

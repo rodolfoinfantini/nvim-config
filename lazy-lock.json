@@ -3,7 +3,6 @@
   "coc.nvim": { "branch": "master", "commit": "1df60fc4bd000ee8bb74cc69967d8fa227aad8da" },
   "copilot.vim": { "branch": "release", "commit": "98c293994f1bbebd5bade5d5840ead3b2feb5074" },
   "diffview.nvim": { "branch": "main", "commit": "b3a763f8c7810b352226c95faa7d3ac9fb93b8d9" },
-  "gruvbox": { "branch": "master", "commit": "bf2885a95efdad7bd5e4794dd0213917770d79b7" },
   "gruvbox-material": { "branch": "master", "commit": "3fff63b0d6a425ad1076a260cd4f6da61d1632b1" },
   "harpoon": { "branch": "master", "commit": "21f4c47c6803d64ddb934a5b314dcb1b8e7365dc" },
   "indent-blankline.nvim": { "branch": "master", "commit": "7075d7861f7a6bbf0de0298c83f8a13195e6ec01" },
@@ -23,8 +22,8 @@
   "undotree": { "branch": "master", "commit": "485f01efde4e22cb1ce547b9e8c9238f36566f21" },
   "vim-be-good": { "branch": "master", "commit": "c290810728a4f75e334b07dc0f3a4cdea908d351" },
   "vim-devicons": { "branch": "master", "commit": "71f239af28b7214eebb60d4ea5bd040291fb7e33" },
+  "vim-fugitive": { "branch": "master", "commit": "43f18ab9155c853a84ded560c6104e6300ad41da" },
   "vim-gitgutter": { "branch": "main", "commit": "4a7ca061af2b199a9b97041270611439e8fa2b02" },
   "vim-polyglot": { "branch": "master", "commit": "bc8a81d3592dab86334f27d1d43c080ebf680d42" },
-  "vim-tmux-navigator": { "branch": "master", "commit": "cdd66d6a37d991bba7997d593586fc51a5b37aa8" },
   "vimspector": { "branch": "master", "commit": "8d9ead4fefc1899bd94da231c97c99def8829dad" }
 }
