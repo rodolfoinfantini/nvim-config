@@ -1,6 +1,15 @@
 local function clock()
     return (" " .. os.date("%H:%M"))
 end
+local function oil_location()
+    return require('oil').get_current_dir() or ''
+end
+local function folder_icon()
+    if oil_location() == '' then
+        return ''
+    end
+    return ""
+end
 
 require('lualine').setup {
     options = {
@@ -39,6 +48,12 @@ require('lualine').setup {
     },
     tabline = {},
     winbar = {
+        lualine_a = {},
+        lualine_b = {folder_icon},
+        lualine_c = {oil_location},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
     },
     inactive_winbar = {
     },
