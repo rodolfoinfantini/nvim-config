@@ -84,6 +84,10 @@ require("lazy").setup({
         "nvim-tree/nvim-web-devicons",
         'folke/lsp-colors.nvim',
         {
+            'echasnovski/mini.trailspace',
+            version = false
+        },
+        {
             "windwp/nvim-ts-autotag",
             ft = { "html" },
             lazy = true,
