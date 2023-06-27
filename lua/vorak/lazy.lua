@@ -80,12 +80,7 @@ require("lazy").setup({
             cmd = "DiffviewOpen",
         },
         "motosir/skel-nvim",
-        {
-            "preservim/nerdcommenter",
-            lazy = true,
-            cmd = "NERDCommenterToggle",
-            keys = { "<leader>cc", "<leader>cu" },
-        },
+        "preservim/nerdcommenter",
         "nvim-tree/nvim-web-devicons",
         'folke/lsp-colors.nvim',
         {
