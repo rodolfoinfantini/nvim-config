@@ -89,6 +89,11 @@ require("lazy").setup({
             lazy = true,
         },
         "github/copilot.vim",
+        {
+            "nvim-tree/nvim-tree.lua",
+            lazy = true,
+            cmd = { "NvimTreeToggle" },
+        },
         "xiyaowong/transparent.nvim",
         {
             'stevearc/oil.nvim',
