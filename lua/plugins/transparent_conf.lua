@@ -9,6 +9,7 @@ require("transparent").setup({
             "NormalFloat",
             "NvimTreeNormal",
             "NvimTreeEndOfBuffer",
+            "OilDir",
         },
         exclude_groups = {},
     })

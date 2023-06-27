@@ -52,11 +52,16 @@ require("lazy").setup({
         "motosir/skel-nvim",
         "preservim/nerdcommenter",
         "nvim-tree/nvim-web-devicons",
-        "nvim-tree/nvim-tree.lua",
+        -- "nvim-tree/nvim-tree.lua",
         'folke/lsp-colors.nvim',
         "windwp/nvim-ts-autotag",
         "github/copilot.vim",
         "xiyaowong/transparent.nvim",
+        {
+            'stevearc/oil.nvim',
+            opts = {},
+            dependencies = { "nvim-tree/nvim-web-devicons" },
+        },
 
         -- THEMES
         "sainnhe/gruvbox-material",

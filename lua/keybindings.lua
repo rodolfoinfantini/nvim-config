@@ -23,7 +23,6 @@ vim.keymap.set("n", "<leader>o", "o<Esc>k")
 vim.keymap.set("n", "th", ":split<CR>")
 vim.keymap.set("n", "tv", ":vsplit<CR>")
 
-vim.keymap.set("n", "<leader>pv", ":Ex<CR>")
 vim.keymap.set("n", "<leader>n", ":bnext<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
