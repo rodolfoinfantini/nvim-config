@@ -12,7 +12,7 @@
   "mini.trailspace": { "branch": "main", "commit": "c41ab1035d184ff20c1aebd76639320c055afebe" },
   "nerdcommenter": { "branch": "master", "commit": "b0b09ea46c9f0509556257bd8b838b40f493d6a0" },
   "nvim-tree.lua": { "branch": "master", "commit": "3cc698b35b0a67792c61e1726830bb9ecfc4c9f4" },
-  "nvim-treesitter": { "branch": "master", "commit": "b75f79bc5f68b552743d2136b80fe545871d5501" },
+  "nvim-treesitter": { "branch": "master", "commit": "f04f137acb1b591a5c21df8c201e8df4878d33ed" },
   "nvim-ts-autotag": { "branch": "main", "commit": "6be1192965df35f94b8ea6d323354f7dc7a557e4" },
   "nvim-web-devicons": { "branch": "master", "commit": "9ab9b0b894b2388a9dbcdee5f00ce72e25d85bf9" },
   "oil.nvim": { "branch": "master", "commit": "a2b7ab5e99907ac04d75ce04d8dcd5728b0ad2f8" },
