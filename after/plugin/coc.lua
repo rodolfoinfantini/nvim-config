@@ -21,7 +21,9 @@ vim.g.coc_global_extensions = {
     'coc-pairs',
     'coc-tabnine',
     'coc-rust-analyzer',
-    'coc-symbol-line'
+    'coc-symbol-line',
+    'coc-cspell-dicts',
+    'coc-spell-checker',
 }
 
 function _G.check_back_space()
