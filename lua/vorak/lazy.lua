@@ -113,6 +113,10 @@ require("lazy").setup({
             lazy = true,
         },
         {
+            "sainnhe/everforest",
+            enabled = false,
+        },
+        {
             "morhetz/gruvbox",
             enabled = false,
         },
