@@ -11,5 +11,9 @@ require("transparent").setup({
             "NvimTreeEndOfBuffer",
             "OilDir",
         },
-        exclude_groups = {},
+        exclude_groups = {
+            'CocSymbolLine',
+            'CocSymbolLineSeparator',
+            'CocSymbolLineEllipsis',
+        },
     })

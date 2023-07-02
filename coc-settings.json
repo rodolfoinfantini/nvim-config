@@ -8,10 +8,46 @@
     "diagnostic.checkCurrentLine": true,
     "languageserver": {
         "csharp-ls": {
-          "command": "csharp-ls",
-          "filetypes": ["cs"],
-          "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
+            "command": "csharp-ls",
+            "filetypes": ["cs"],
+            "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "usePlaceholders": true,
+                "completeUnimported": true
+            }
         }
     },
-    "snippets.ultisnips.pythonPrompt": false
+    "snippets.ultisnips.pythonPrompt": false,
+    "suggest.completionItemKindLabels": {
+        "keyword": " ",
+        "variable": " ",
+        "value": "󰎠 ",
+        "operator": " ",
+        "function": " ",
+        "reference": " ",
+        "constant": " ",
+        "method": " ",
+        "struct": " ",
+        "class": " ",
+        "interface": " ",
+        "text": " ",
+        "enum": " ",
+        "enumMember": " ",
+        "module": " ",
+        "color": " ",
+        "property": " ",
+        "field": " ",
+        "unit": " ",
+        "event": " ",
+        "file": " ",
+        "folder": " ",
+        "snippet": " ",
+        "typeParameter": " ",
+        "default": " "
+    }
 }

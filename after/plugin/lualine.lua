@@ -5,7 +5,7 @@ local function oil_location()
     return require('oil').get_current_dir() or ''
 end
 local function folder_icon()
-    if oil_location() == '' then
+    if require('oil').get_current_dir() == nil then
         return ''
     end
     return ""
@@ -48,7 +48,12 @@ require('lualine').setup {
     },
     tabline = {},
     winbar = {
-        lualine_a = {},
+        lualine_a = {
+            {
+                '%{%get(b:, "coc_symbol_line", "")%}',
+                color = 'none',
+            },
+        },
         lualine_b = {folder_icon},
         lualine_c = {oil_location},
         lualine_x = {},

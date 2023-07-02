@@ -3,6 +3,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files)
 vim.keymap.set('n', '<leader>fj', builtin.live_grep)
 vim.keymap.set('n', '<leader>fb', builtin.buffers)
 vim.keymap.set('n', '<leader>fm', ':Telescope coc document_symbols<CR>')
+vim.keymap.set('n', '<leader>fd', ':Telescope coc diagnostics<CR>')
 
 require('telescope').setup{
     file_ignore_patterns = {"node%_modules/.*", ".git/.*"},

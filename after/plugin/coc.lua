@@ -10,7 +10,6 @@ vim.g.coc_global_extensions = {
     'coc-eslint',
     'coc-git',
     'coc-go',
-    'coc-gocode',
     'coc-highlight',
     'coc-html',
     'coc-java',
@@ -21,7 +20,8 @@ vim.g.coc_global_extensions = {
     'coc-tsserver',
     'coc-pairs',
     'coc-tabnine',
-    'coc-rust-analyzer'
+    'coc-rust-analyzer',
+    'coc-symbol-line'
 }
 
 function _G.check_back_space()
@@ -86,7 +86,6 @@ vim.cmd([[
     autocmd BufWritePre *.css :silent call CocAction('runCommand', 'prettier.formatFile')
     autocmd BufWritePre *.html :silent call CocAction('runCommand', 'prettier.formatFile')
     autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-    autocmd BufWritePre *.go :normal gg=G
     augroup mygroup
     autocmd!
     autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')

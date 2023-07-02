@@ -64,9 +64,9 @@ require("lazy").setup({
         },
         {
             "puremourning/vimspector",
-            lazy = true,
-            cmd = { "VimspectorToggleBreakpoint", "Vimspector" },
-            keys = { "<F5>", "<F9>" },
+            -- lazy = true,
+            -- cmd = { "VimspectorToggleBreakpoint", "Vimspector" },
+            -- keys = { "<F5>", "<F9>" },
         },
         {
             "ThePrimeagen/vim-be-good",
@@ -103,6 +103,22 @@ require("lazy").setup({
             'stevearc/oil.nvim',
             opts = {},
             dependencies = { "nvim-tree/nvim-web-devicons" },
+        },
+        {
+            'fatih/vim-go',
+            lazy = true,
+            ft = { "go" },
+        },
+        {
+            "folke/noice.nvim",
+            event = "VeryLazy",
+            opts = {
+                -- add any options here
+            },
+            dependencies = {
+                "MunifTanjim/nui.nvim",
+                "rcarriga/nvim-notify",
+            }
         },
 
         -- THEMES
