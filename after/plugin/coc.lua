@@ -65,7 +65,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 vim.keymap.set("n", "K", '<CMD>lua _G.show_docs()<CR>', { silent = true })
 vim.keymap.set("n", "[g", '<Plug>(coc-diagnostic-prev)', { noremap = false })
-vim.keymap.set("n", "[g", '<Plug>(coc-diagnostic-next)', { noremap = false })
+vim.keymap.set("n", "]g", '<Plug>(coc-diagnostic-next)', { noremap = false })
 
 vim.keymap.set("n", "gd", '<Plug>(coc-definition)', { noremap = false })
 vim.keymap.set("n", "gy", '<Plug>(coc-type-definition)', { noremap = false })
