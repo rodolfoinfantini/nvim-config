@@ -14,6 +14,10 @@
   "mini.trailspace": { "branch": "main", "commit": "c41ab1035d184ff20c1aebd76639320c055afebe" },
   "nerdcommenter": { "branch": "master", "commit": "ab2ae4d502a26bc591db78a8548823ddd04bbc9c" },
   "nui.nvim": { "branch": "main", "commit": "d146966a423e60699b084eeb28489fe3b6427599" },
+  "nvim-dap": { "branch": "master", "commit": "bb1ddce6cd951ef3c1319e4fd8596131113163c3" },
+  "nvim-dap-go": { "branch": "main", "commit": "cdf604a5703838f65fdee7c198f6cb59b563ef6f" },
+  "nvim-dap-ui": { "branch": "master", "commit": "c020f660b02772f9f3d11f599fefad3268628a9e" },
+  "nvim-dap-virtual-text": { "branch": "master", "commit": "57f1dbd0458dd84a286b27768c142e1567f3ce3b" },
   "nvim-tree.lua": { "branch": "master", "commit": "4af572246ce49883e2a52c49203a19984454f2e0" },
   "nvim-treesitter": { "branch": "master", "commit": "896f2c76229f03d6978d29fa7b12421d7c18102f" },
   "nvim-ts-autotag": { "branch": "main", "commit": "6be1192965df35f94b8ea6d323354f7dc7a557e4" },
@@ -33,6 +37,5 @@
   "vim-go": { "branch": "master", "commit": "12de6c0bc0efce3cedc5e28d4fe0ecc3a4aaeb77" },
   "vim-polyglot": { "branch": "master", "commit": "bc8a81d3592dab86334f27d1d43c080ebf680d42" },
   "vim-wakatime": { "branch": "master", "commit": "018fa9a80c27ccf2a8967b9e27890372e5c2fb4f" },
-  "vimspector": { "branch": "master", "commit": "02c8da857bbb1b5fc2cf7dfbdda85ba1201a8d8c" },
   "zen-mode.nvim": { "branch": "main", "commit": "68f554702de63f4b7b6b6d4bcb10178f41a0acc7" }
 }

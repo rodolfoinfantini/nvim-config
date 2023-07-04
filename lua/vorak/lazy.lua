@@ -14,16 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.g.vimspector_enable_mappings = "HUMAN"
-vim.g.vimspector_sign_priority = {
-    vimspectorBP=500,
-    vimspectorBPCond=500,
-    vimspectorBPLog=500,
-    vimspectorBPDisabled=500,
-    vimspectorPC=999,
-    vimspectorPCBP=999,
-}
-
 require("lazy").setup({
         {
             "neoclide/coc.nvim",
@@ -63,8 +53,13 @@ require("lazy").setup({
             event = "BufRead",
         },
         {
-            "puremourning/vimspector",
+            "rcarriga/nvim-dap-ui",
+            dependencies = {
+                "mfussenegger/nvim-dap",
+            }
         },
+        "theHamsta/nvim-dap-virtual-text",
+        "leoluz/nvim-dap-go",
         {
             "ThePrimeagen/vim-be-good",
             lazy = true,
