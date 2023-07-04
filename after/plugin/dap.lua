@@ -113,13 +113,13 @@ end
 
 
 vim.g.dotnet_build_project = function()
-    local default_path = vim.fn.getcwd() .. '/'
+    local default_path = vim.fn.getcwd() .. '\\'
     if vim.g['dotnet_last_proj_path'] ~= nil then
         default_path = vim.g['dotnet_last_proj_path']
     end
-    local path = vim.fn.input('Path to your *proj file', default_path, 'file')
+    local path = vim.fn.input('Path to your *proj file: ', default_path, 'file')
     vim.g['dotnet_last_proj_path'] = path
-    local cmd = 'dotnet build -c Debug ' .. path .. ' > /dev/null'
+    local cmd = 'dotnet build -c Debug ' .. path
     print('')
     print('Cmd to execute: ' .. cmd)
     local f = os.execute(cmd)
@@ -132,7 +132,7 @@ end
 
 vim.g.dotnet_get_dll_path = function()
     local request = function()
-        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+        return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '\\bin\\Debug\\', 'file')
     end
 
     if vim.g['dotnet_last_dll_path'] == nil then
@@ -145,23 +145,30 @@ vim.g.dotnet_get_dll_path = function()
 
     return vim.g['dotnet_last_dll_path']
 end
-
+function build_before_run()
+    if vim.fn.confirm('Should I recompile first?', '&yes\n&no', 2) == 1 then
+        vim.g.dotnet_build_project()
+    end
+    return vim.g.dotnet_get_dll_path()
+end
 local config = {
     {
         type = "coreclr",
         name = "launch - netcoredbg",
         request = "launch",
-        program = function()
-            if vim.fn.confirm('Should I recompile first?', '&yes\n&no', 2) == 1 then
-                vim.g.dotnet_build_project()
-            end
-            return vim.g.dotnet_get_dll_path()
-        end,
+        program = build_before_run,
+    },
+    {
+        type = "coreclr",
+        name = "launch - netcoredbg - localhost",
+        request = "launch",
+        args = {"--urls", "http://localhost:5678", "--environment", "Localhost"},
+        program = build_before_run,
     },
 }
 
 
-if vim.fn.has('unix') then
+if vim.fn.has('unix') == 1 then
     dap.adapters.coreclr = {
         type = 'executable',
         command = '/home/vorak/bin/netcoredbg/netcoredbg',
@@ -175,4 +182,3 @@ else
     }
 end
 dap.configurations.cs = config
-dap.configurations.fsharp = config
