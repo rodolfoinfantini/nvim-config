@@ -25,4 +25,6 @@ require('telescope').setup{
         },
     }
     require('telescope').load_extension('coc')
-    require('telescope').load_extension('fzf')
+    if vim.fn.has('unix') == 1 then
+        require('telescope').load_extension('fzf')
+    end
