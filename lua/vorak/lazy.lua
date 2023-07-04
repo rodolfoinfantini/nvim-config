@@ -106,6 +106,20 @@ require("lazy").setup({
             lazy = true,
             ft = { "go" },
         },
+        'wakatime/vim-wakatime',
+        {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            build = 'make'
+        },
+        {
+            "jackMort/ChatGPT.nvim",
+            event = "VeryLazy",
+            dependencies = {
+                "MunifTanjim/nui.nvim",
+                "nvim-lua/plenary.nvim",
+                "nvim-telescope/telescope.nvim",
+            },
+        },
 
         -- THEMES
         {
