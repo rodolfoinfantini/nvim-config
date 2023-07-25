@@ -64,8 +64,16 @@
         "**/*.dll"             // Ignore all .dll files
     ],
     "cSpell.userWords": [
+      "Sidebery",
+      "gopls",
+      "gruv",
+      "headerbar",
       "mysqldb",
       "persistsecurityinfo",
-      "stockfish"
+      "stockfish",
+      "tabbar",
+      "titlebar",
+      "titlepreface",
+      "vimspector"
     ]
 }

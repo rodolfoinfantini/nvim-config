@@ -113,7 +113,7 @@ end
 
 
 vim.g.dotnet_build_project = function()
-    local default_path = vim.fn.getcwd() .. '\\'
+    local default_path = vim.fn.getcwd() .. '/'
     if vim.g['dotnet_last_proj_path'] ~= nil then
         default_path = vim.g['dotnet_last_proj_path']
     end
@@ -121,6 +121,9 @@ vim.g.dotnet_build_project = function()
     vim.g['dotnet_last_proj_path'] = path
     local cmd = 'dotnet build -c Debug ' .. path
     print('')
+    if vim.fn.has('unix') == 1 then
+        cmd = cmd .. ' > /dev/null'
+    end
     print('Cmd to execute: ' .. cmd)
     local f = os.execute(cmd)
     if f == 0 then
@@ -132,7 +135,7 @@ end
 
 vim.g.dotnet_get_dll_path = function()
     local request = function()
-        return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '\\bin\\Debug\\', 'file')
+        return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/', 'file')
     end
 
     if vim.g['dotnet_last_dll_path'] == nil then
@@ -171,7 +174,7 @@ local config = {
 if vim.fn.has('unix') == 1 then
     dap.adapters.coreclr = {
         type = 'executable',
-        command = '/home/vorak/bin/netcoredbg/netcoredbg',
+        command = os.getenv('HOME') .. '/bin/netcoredbg/netcoredbg',
         args = {'--interpreter=vscode'}
     }
 else
