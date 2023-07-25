@@ -117,6 +117,7 @@ require("lazy").setup({
         },
         {
             "folke/flash.nvim",
+            enabled = false,
             event = "VeryLazy",
             opts = {},
             keys = {
